@@ -70,7 +70,7 @@ function App() {
       <Navbar />
       <main className="container mx-auto flex h-full w-full flex-col items-center justify-center gap-36 px-4">
         <Arrow />
-        <Block id="1">
+        <Block id="1" overlappedItem={overlappedItem}>
           <div className="h-20 w-20 rounded-full border border-white/5 bg-transparent p-4">
             <img
               className="h-full w-full  object-contain invert"
@@ -81,16 +81,16 @@ function App() {
           <p className="font-medium">Into Aleph Zero</p>
         </Block>
         <SmallArrow />
-        <Block id="2">
+        <Block id="2" overlappedItem={overlappedItem}>
           <p className="font-medium">Blazingly fast.</p>
           <p>Exceptionally private.</p>
         </Block>
         <SmallArrow />
-        <Block id="3">
+        <Block id="3" overlappedItem={overlappedItem}>
           <p className="font-medium">Driving Web3 adoption</p>
         </Block>
         <SmallArrow />
-        <Block id="4">
+        <Block id="4" overlappedItem={overlappedItem}>
           <p className="font-medium">Community of over 100,000 people</p>
         </Block>
         <div className="h-screen"></div>
