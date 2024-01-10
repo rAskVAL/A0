@@ -12,6 +12,8 @@ export default function FixedComponent({ options }: { options: Options }) {
     overlappedItem,
     setOverlappedItem,
     context,
+    color,
+    borderColor,
   } = options;
 
   useEffect(() => {
@@ -49,7 +51,8 @@ export default function FixedComponent({ options }: { options: Options }) {
           opacity: 1,
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed bottom-4 right-4 flex min-h-14 min-w-14 items-center justify-center overflow-hidden border-2 border-emerald-300 bg-gradient-to-tr from-zerogreen to-emerald-500 p-4 text-white transition-all ${
+        style={{ backgroundColor: color, borderColor: borderColor }}
+        className={`fixed bottom-4 right-4 flex min-h-14 min-w-14 items-center justify-center overflow-hidden border-2  p-4 text-white transition-all ${
           overlappedItem
             ? "h-2/3 w-3/4 rounded-[1rem] md:h-72 md:w-[40rem]"
             : "h-14 w-14 rounded-[5rem] hover:scale-110"

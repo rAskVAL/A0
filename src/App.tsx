@@ -18,6 +18,8 @@ export type Options = {
   logo: string;
   overlapTargetClass: string;
   context: Context[];
+  color?: string;
+  borderColor?: string;
 };
 
 const context: Context[] = [
@@ -63,6 +65,8 @@ function App() {
     overlapTargetClass: "target", // add class to containers you want to interacted with fixed element, then this class needs to be added here.
     logo: "https://cdn-images-1.medium.com/max/1200/1*HspIYThoyGWNikuOwjf-xg.png", // logo
     context: context, // context for fixed container when its open
+    color: "#00eac7",
+    borderColor: "#80ffec",
   };
 
   return (
