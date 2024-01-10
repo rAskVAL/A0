@@ -5,3 +5,19 @@ Option prop allows you to change: context, logo, background color and border col
 For this app I used React, Typescript, Tailwind for styling and for some animations I have used Framer Motion. Framer Motion was not used to make any functionality for main component.
 
 App is fully responsive.
+
+type Context = {
+id: string;
+title: string;
+paragraphs: string[];
+};
+
+type Options = {
+overlappedItem: string | null;
+setOverlappedItem: (item: string | null) => void;
+logo: string;
+overlapTargetClass: string;
+context: Context[];
+color?: string;
+borderColor?: string;
+};

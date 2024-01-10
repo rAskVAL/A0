@@ -1,26 +1,10 @@
 import { useState } from "react";
-import FixedComponent from "./components/FixedComponent";
+import FixedComponent, { Context, Options } from "./components/FixedComponent";
 import Block from "./components/Block";
 import Arrow from "./components/Arrow";
 import Navbar from "./components/Navbar";
 import SmallArrow from "./components/SmallArrow";
 import BluredCircles from "./components/BluredCircles";
-
-export type Context = {
-  id: string;
-  title: string;
-  paragraphs: string[];
-};
-
-export type Options = {
-  overlappedItem: string | null;
-  setOverlappedItem: (item: string | null) => void;
-  logo: string;
-  overlapTargetClass: string;
-  context: Context[];
-  color?: string;
-  borderColor?: string;
-};
 
 const context: Context[] = [
   {

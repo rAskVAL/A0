@@ -1,6 +1,21 @@
 import { motion } from "framer-motion";
 import { /* forwardRef, */ useEffect, useRef, useState } from "react";
-import { Context, Options } from "../App";
+
+export type Context = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+};
+
+export type Options = {
+  overlappedItem: string | null;
+  setOverlappedItem: (item: string | null) => void;
+  logo: string;
+  overlapTargetClass: string;
+  context: Context[];
+  color?: string;
+  borderColor?: string;
+};
 
 export default function FixedComponent({ options }: { options: Options }) {
   const ref = useRef<HTMLDivElement>(null);
