@@ -1,24 +1,22 @@
 import { motion } from "framer-motion";
 import { /* forwardRef, */ useEffect, useRef, useState } from "react";
-import { Context } from "../App";
+import { Context, Options } from "../App";
 
-interface Props {
-  overlappedItem: string | null;
-  setOverlappedItem: (item: string | null) => void;
-  context: Context[];
-}
-
-export default function FixedComponent({
-  overlappedItem,
-  setOverlappedItem,
-  context,
-}: Props) {
+export default function FixedComponent({ options }: { options: Options }) {
   const ref = useRef<HTMLDivElement>(null);
   const [animating, setAnimating] = useState<boolean>(false);
   const [text, setText] = useState<Context | null>(null);
+  const {
+    logo,
+    overlapTargetClass,
+    overlappedItem,
+    setOverlappedItem,
+    context,
+  } = options;
+
   useEffect(() => {
     window.onscroll = function callback() {
-      const targets = document.getElementsByClassName("target");
+      const targets = document.getElementsByClassName(overlapTargetClass);
       if (targets.length > 0)
         Array.from(targets).forEach((item) => {
           const id = item.id;
@@ -36,8 +34,9 @@ export default function FixedComponent({
           } else if (overlappedItem === id) setOverlappedItem(null);
         });
     };
-    setText(context?.filter((item) => item.id === overlappedItem)[0] || null);
-  }, [overlappedItem, setOverlappedItem, text, context]);
+
+    setText(context?.filter((item) => item.id === overlappedItem)[0] || null); // if overlapped item equals any of the id's in context, this text will be shown
+  }, [overlappedItem, setOverlappedItem, overlapTargetClass, text, context]);
   return (
     <>
       <motion.div
@@ -48,15 +47,16 @@ export default function FixedComponent({
           translateY: 0,
           scale: 1,
           opacity: 1,
-          height: overlappedItem ? "18rem" : "3.5rem",
-          width: overlappedItem ? "40rem" : "3.5rem",
-          borderRadius: overlappedItem ? "1rem" : "20rem",
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed bottom-4 right-4 flex min-h-14 min-w-14 items-center justify-center overflow-hidden rounded-full border-2 border-emerald-300 bg-gradient-to-tr from-zerogreen to-emerald-500 p-4 text-white`}
+        className={`fixed bottom-4 right-4 flex min-h-14 min-w-14 items-center justify-center overflow-hidden border-2 border-emerald-300 bg-gradient-to-tr from-zerogreen to-emerald-500 p-4 text-white transition-all ${
+          overlappedItem
+            ? "h-2/3 w-3/4 rounded-[1rem] md:h-72 md:w-[40rem]"
+            : "h-14 w-14 rounded-[5rem] hover:scale-110"
+        }`}
       >
         <img
-          src="https://cdn-images-1.medium.com/max/1200/1*HspIYThoyGWNikuOwjf-xg.png"
+          src={logo}
           className={`h-12 w-12 object-contain opacity-100 transition-all duration-300 ${
             overlappedItem && "!h-1/2 !w-1/2 !opacity-15 blur-sm"
           }`}

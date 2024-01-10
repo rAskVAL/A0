@@ -45,7 +45,7 @@ export default function Arrow() {
       >
         <div
           ref={ref}
-          className={`fixed z-20 flex h-32 w-32 items-center justify-center rounded-full border border-white/5 bg-midnight-400 transition-all hover:scale-95 hover:border-white/10`}
+          className={`fixed z-20 flex h-32 w-32 items-center justify-center rounded-full border border-white/5 bg-[radial-gradient(100%_100%_at_50%_50%,rgba(17,27,36,1)_35%,rgba(0,234,199,1)_500%)] transition-all hover:scale-95 hover:border-white/10`}
         >
           <i
             className={`ti ${
