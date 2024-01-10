@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #111b24;
+}
+
+.mask-clip {
+  -webkit-mask-image: radial-gradient(
+    ellipse 120% 90% at 48% 50%,
+    black 40%,
+    transparent 50%
+  );
+  mask-image: radial-gradient(
+    ellipse 120% 90% at 48% 50%,
+    black 40%,
+    transparent 50%
+  );
+}
