@@ -5,7 +5,7 @@ export default function Navbar() {
         <img
           src="https://media.zenfs.com/en/globenewswire.com/c6e127ae59f15125ce5899b3fa7e4187"
           alt="a0 logo"
-          className="h-2/3 object-contain md:h-full"
+          className="z-50 h-2/3 object-contain md:h-full"
         />
       </div>
       <div className="absolute left-0 top-0 z-10 flex h-full w-full justify-between ">
